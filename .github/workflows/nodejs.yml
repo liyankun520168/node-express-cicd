@@ -1,35 +1,35 @@
-name: Node.js CI
+名字: Node.js CI
 
-on:
-  push:
-    branches: [ main ]
-  issues:
-    types: [opened]
+在:
+推:
+分支: [主要的]
+问题:
+类型: [开的]
 
-jobs:
-  build:
-    runs-on: ubuntu-latest
+工作:
+建设:
+连续运行: Ubuntu-最新版
 
-    strategy:
-      matrix:
-        node-version: [12.x]
+战略:
+矩阵:
+节点版本: [14.x]
         
-    steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with: 
-        node-version: ${{ matrix.node-version }}
-    - run: npm i 
-    - run: npm run build --if-present
+步伐:
+    - 使用: 动作/签出@v2
+    - 名字: 使用Node.js ${{矩阵.节点-版本}}
+使用: 动作/设置-节点@v1
+随着: 
+节点版本: ${{矩阵.节点-版本}}
+    - 奔跑: 国家预防机制一
+    - 奔跑: npm运行构建-如果存在
 
 
     
-    - name: Run the tests and generate converage reports
-      run: npm test --coverage
+    - 名字: 运行测试并生成覆盖报告
+奔跑: npm测试覆盖
 
-    - name: Archive code coverage results
-      uses: actions/upload-artifact@v4
-      with:
-        name: code-coverage-report
-        path: coverage/
+    - 名字: 存档代码覆盖率结果
+使用: 动作/上传-工件@v4
+随着:
+名字: 代码覆盖率报告
+小路: 覆盖率/
